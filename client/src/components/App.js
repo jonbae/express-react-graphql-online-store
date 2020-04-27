@@ -1,5 +1,6 @@
 import React from "react";
 import ProductIndex from "./products/ProductIndex";
+import Login from "./Login";
 import { Route, Router, Switch } from "react-router-dom";
 
 const App = () => {
@@ -7,7 +8,7 @@ const App = () => {
     <div>
       <h1>Online Store</h1>
       <Switch>
-        {/* <Route exact path="/login" component={Login} /> */}
+        <Route exact path="/login" component={Login} />
         <Route path="/" component={ProductIndex} />
       </Switch>
     </div>
