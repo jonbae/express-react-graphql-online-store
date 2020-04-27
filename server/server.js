@@ -2,11 +2,14 @@ const models = require("./models");
 const express = require("express");
 const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
+const cors = require("cors");
 const db = require("../config/keys.js").MONGO_URI;
 const schema = require("./schema/schema");
 const expressGraphQL = require("express-graphql");
 
 const app = express();
+
+app.use(cors());
 
 app.use(
   "/graphql",

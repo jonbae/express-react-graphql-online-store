@@ -1,17 +1,8 @@
-import React, { Component } from "react";
-import gql from "graphql-tag";
+import React from "react";
 import { Query } from "react-apollo";
+import { FETCH_PRODUCTS } from "../../graphql/queries";
 
-const FETCH_PRODUCTS = gql`
-  {
-    products {
-      _id
-      name
-    }
-  }
-`;
-
-const App = () => {
+const ProductIndex = () => {
   return (
     <Query query={FETCH_PRODUCTS}>
       {({ loading, error, data }) => {
@@ -30,4 +21,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default ProductIndex;
