@@ -9,4 +9,11 @@ export const FETCH_PRODUCTS = gql`
   }
 `;
 
-// export FETCH_PRODUCTS ;
+export default {
+  // it's this simple to query our cache!
+  IS_LOGGED_IN: gql`
+    query IsUserLoggedIn {
+      isLoggedIn @client
+    }
+  `,
+};
