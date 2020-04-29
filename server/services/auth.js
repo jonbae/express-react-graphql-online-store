@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const User = require("../models/User");
-const keys = require("../../config/keys").secretOrKey;
+const keys = require("../../config/keys");
 
 const validateRegisterInput = require("../validation/register");
 const validateLoginInput = require("../validation/login");
