@@ -17,6 +17,14 @@ class Register extends Component {
     return (e) => this.setState({ [field]: e.target.value });
   }
 
+  updateCache(client, { data }) {
+    console.log(data);
+    // here we can write directly to our cache with our returned mutation data
+    client.writeData({
+      data: { isLoggedIn: data.register.loggedIn },
+    });
+  }
+
   render() {
     return (
       <Mutation
@@ -26,6 +34,7 @@ class Register extends Component {
           localStorage.setItem("auth-token", token);
           this.props.history.push("/");
         }}
+        update={(client, data) => this.updateCache(client, data)}
       >
         {(registerUser) => (
           <div>
