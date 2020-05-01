@@ -95,7 +95,7 @@ const login = async (data) => {
 const verifyUser = async (data) => {
   try {
     const { token } = data;
-    const decoded = jwt.verify(token, keys);
+    const decoded = jwt.verify(token, keys.secretOrKey);
     const { id } = decoded;
 
     const loggedIn = await User.findById(id).then((user) => {

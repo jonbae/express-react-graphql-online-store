@@ -13,9 +13,17 @@ app.use(cors());
 
 app.use(
   "/graphql",
-  expressGraphQL({
-    schema,
-    graphiql: true,
+  // now we are accepting the request in our middleware
+  expressGraphQL((req) => {
+    return {
+      schema,
+      // we are receiving the request and can check for our
+      // auth token under headers
+      context: {
+        token: req.headers.authorization,
+      },
+      graphiql: true,
+    };
   })
 );
 
